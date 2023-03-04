@@ -5,3 +5,15 @@ from django.http import HttpResponse
 
 def inicio(request):
     return render(request , 'appSchool/inicio.html')
+
+def estudiantes(request):
+    return render(request , 'appSchool/estudiantes.html')
+
+def profesores(request):
+    return render(request , 'appSchool/profesores.html')
+
+def materias(request):
+    return render(request , 'appSchool/materias.html')
+
+def notas(request):
+    return render(request , 'appSchool/notas.html')

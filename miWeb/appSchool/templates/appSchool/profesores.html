@@ -5,7 +5,31 @@
 
 {% block padre %}
 
+<h2>Agregar profesor</h2>
 <br>
-<h1>Profesores</h1>
 
+{% if formulario.errors %}
+
+<p style="color: red;">Estan mal los datos, revisar</p>
+
+{% endif %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+<table>
+
+    {{formulario.as_table}}
+
+</table>
+
+<input type="submit" value="Enviar"">
+
+
+</form>
+
+
+{% endblock %}
+
+{% block local %}
+Profesores
 {% endblock %}

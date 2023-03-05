@@ -3,9 +3,33 @@
 
 {% load static %}
 
+
 {% block padre %}
 
+<h2>Agregar nota</h2>
 <br>
-<h1>Notas</h1>
 
+{% if formulario.errors %}
+
+<p style="color: red;">Estan mal los datos, revisar</p>
+
+{% endif %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+<table>
+
+    {{formulario.as_table}}
+
+</table>
+
+<input type="submit" value="Enviar"">
+
+
+</form>
+
+{% endblock %}
+
+{% block local %}
+Notas
 {% endblock %}

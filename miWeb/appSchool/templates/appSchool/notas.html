@@ -15,7 +15,7 @@
 
 {% endif %}
 
-<form action="" method="POST"> {% csrf_token %}
+<form action="/appSchool/notas/" method="POST"> {% csrf_token %}
 
 <table>
 
@@ -28,7 +28,23 @@
 
 </form>
 
+
+<br>
+<h2>Buscar notas</h2>
+<br>
+
+<form action="/appSchool/buscar/" method="GET"> 
+
+    <p>Alumno: <input type="text" name="alumno" id="alumno"> </p>
+    
+    <input type="submit" value="Buscar">
+
+</form>
+
+
 {% endblock %}
+
+
 
 {% block local %}
 Notas

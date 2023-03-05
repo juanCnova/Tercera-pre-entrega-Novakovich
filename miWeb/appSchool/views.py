@@ -82,3 +82,20 @@ def notas(request):
 
 def contacto(request):
     return render(request , 'appSchool/contacto.html' )
+
+
+def buscar(request):
+    
+    if request.GET['alumno']:
+        alumno = request.GET['alumno']
+        objeto = Nota.objects.filter(alumno__icontains = alumno)
+       
+        if len(objeto) == 0:
+             return render(request , 'appSchool/buscar.html', {'vacio':1})
+
+
+
+        return render(request , 'appSchool/buscar.html', {'objeto':objeto , 'alumno':alumno})
+    
+    else:
+        return HttpResponse('no hay nada')

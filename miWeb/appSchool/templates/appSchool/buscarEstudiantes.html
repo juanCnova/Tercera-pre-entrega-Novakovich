@@ -1,0 +1,38 @@
+{% extends 'appSchool/padre.html' %}
+
+{% load static %}
+
+{% block padre %}
+
+
+    {% if vacio != 1 %}
+
+    {% if objeto %}
+    <br>
+    <p>Alumno con legajo: {{legajo}}</p>
+
+
+    <ul>
+
+        {% for info in objeto %}
+
+        <li> Nombre: {{info.nombre}} </li>
+        <li> Apellido: {{info.apellido}} </li>
+        <li> Mail: {{info.mail}} </li>
+        <li> Legajo: {{info.legajo}} </li>
+        <br>
+        
+        {% endfor %}
+
+
+    </ul>
+
+    {% endif %}
+
+    {% else %}
+     
+     <br>
+     <h2>No se encontraron resultados</h2>
+
+     {% endif %}
+{% endblock %}

@@ -9,17 +9,17 @@
 
     {% if objeto %}
     <br>
-    <p>Notas de {{alumno}}</p>
+    <p>Materia: {{nombre}}</p>
 
 
     <ul>
 
         {% for info in objeto %}
 
-        <li> materia: {{info.materia}} </li>
-        <li> nota: {{info.nota}} </li>
+        <li> Materia: {{info.nombre}} </li>
+        <li> Profesor: {{info.profesor}} </li>
         <br>
-
+        
         {% endfor %}
 
 

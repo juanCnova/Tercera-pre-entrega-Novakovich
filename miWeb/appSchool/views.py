@@ -84,18 +84,61 @@ def contacto(request):
     return render(request , 'appSchool/contacto.html' )
 
 
-def buscar(request):
+def buscarNotas(request):
     
     if request.GET['alumno']:
         alumno = request.GET['alumno']
         objeto = Nota.objects.filter(alumno__icontains = alumno)
        
         if len(objeto) == 0:
-             return render(request , 'appSchool/buscar.html', {'vacio':1})
+             return render(request , 'appSchool/buscarNotas.html', {'vacio':1})
 
-
-
-        return render(request , 'appSchool/buscar.html', {'objeto':objeto , 'alumno':alumno})
+        return render(request , 'appSchool/buscarNotas.html', {'objeto':objeto , 'alumno':alumno})
     
     else:
-        return HttpResponse('no hay nada')
+        return HttpResponse('No se ingresaron datos')
+    
+def buscarEstudiante(request):
+  
+    if request.GET['legajo']:
+        legajo = request.GET['legajo']
+        objeto = Estudiante.objects.filter(legajo__icontains = legajo)
+
+        if len(objeto) == 0:
+              return render(request , 'appSchool/buscarEstudiantes.html', {'vacio':1})
+
+        return render(request , 'appSchool/buscarEstudiantes.html', {'objeto':objeto , 'legajo':legajo})
+    
+    else:
+        return HttpResponse('No se ingresaron datos')
+    
+
+def buscarMaterias(request):
+   
+    if request.GET['nombre']:
+
+        nombre = request.GET['nombre']
+        objeto = Materia.objects.filter(nombre__icontains = nombre)
+
+        if len(objeto) == 0:
+              return render(request , 'appSchool/buscarMaterias.html', {'vacio':1})
+
+        return render(request , 'appSchool/buscarMaterias.html', {'objeto':objeto , 'nombre':nombre})
+    
+    else:
+        return HttpResponse('No se ingresaron datos')
+       
+def buscarProfesores(request):
+
+    if request.GET['nombre']:
+
+        nombre = request.GET['nombre']
+        objeto = Profesor.objects.filter(nombre__icontains = nombre)
+
+        if len(objeto) == 0:
+              return render(request , 'appSchool/buscarProfesores.html', {'vacio':1})
+
+        return render(request , 'appSchool/buscarProfesores.html', {'objeto':objeto , 'nombre':nombre})
+    
+    else:
+        return HttpResponse('No se ingresaron datos')
